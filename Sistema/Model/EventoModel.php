@@ -33,23 +33,24 @@ class EventoModel {
 
     public function listarEventos()
     {
-    $sql = "SELECT 
-                id, 
-                nome,
-                descricao, 
-                data,
-                local,
-                quant_participantes,
-                id_participantes
-            FROM eventos
-            INNER JOIN id_participantes ON eventos.selecao_mandante_id = sel_mandante.id
-            INNER JOIN selecoes AS sel_visitante ON eventos.selecao_visitante_id = sel_visitante.id
-            LEFT JOIN grupos ON eventos.grupo_id = grupos.id
-            ORDER BY eventos.data_hora ASC"; // Organiza por data e hora
+        $sql = "SELECT 
+                    eventos.id, 
+                    eventos.titulo,
+                    eventos.descricao, 
+                    eventos.data, 
+                    eventos.local,
+                    eventos.quant_participantes,
+                    eventos.id_participantes,
+                    (
+                        SELECT COUNT(*) FROM participantes WHERE participantes.id_eventos = eventos.id
+                    ) AS vagas_ocupadas,
+                    participantes.nome AS nome_participante
+                FROM eventos
+                LEFT JOIN participantes ON eventos.id_participantes = participantes.id";
 
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 
