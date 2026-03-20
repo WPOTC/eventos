@@ -18,8 +18,8 @@ class ParticipanteController{
         return $this->model->loginParticipante($email, $senha);
     }
 
-    public function listarParticipantes() {
-        return $this->model->listarParticipantes();
+    public function listarInformacoesParticipante($id) {
+        return $this->model->listarInformacoesParticipante($id);
     }
 
     public function editarParticipante($nome, $email, $telefone, $senha, $id) {
@@ -30,12 +30,8 @@ class ParticipanteController{
         return $this->model->deletarParticipante($id);
     }
 
-    public function listarEventosInscritos($id_participantes){
-        return $this->model->listarEventosInscritos($id_participantes);
-    }
-
-    public function participarEvento($id_participantes, $id_eventos){
-        return $this->model->participarDeEvento($id_participantes, $id_eventos);
+    public function listarParticipante($id) {
+        return $this->model->listarInformacoesParticipante($id);
     }
 }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/03/2026 às 18:10
+-- Tempo de geração: 20/03/2026 às 11:41
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -33,8 +33,27 @@ CREATE TABLE `eventos` (
   `descricao` varchar(255) NOT NULL,
   `data` datetime NOT NULL,
   `local` varchar(255) NOT NULL,
-  `quant_participantes` varchar(255) NOT NULL,
-  `id_participantes` varchar(255) NOT NULL
+  `quant_participantes` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `eventos`
+--
+
+INSERT INTO `eventos` (`id`, `titulo`, `descricao`, `data`, `local`, `quant_participantes`) VALUES
+(1, 'Teste', 'Teste', '1998-06-21 13:30:00', 'Japao', '10'),
+(2, 'Teste', 'Teste', '1998-06-21 13:30:00', 'Japao', '5');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `inscricoes`
+--
+
+CREATE TABLE `inscricoes` (
+  `id` int(11) NOT NULL,
+  `id_participante` int(11) NOT NULL,
+  `id_evento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -48,9 +67,18 @@ CREATE TABLE `participantes` (
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `telefone` varchar(255) NOT NULL,
-  `id_eventos` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `participantes`
+--
+
+INSERT INTO `participantes` (`id`, `nome`, `email`, `telefone`, `senha`) VALUES
+(1, 'JOAO AUGUSTO MERGULHAO ROSA', 'gutomergr.s@gmail.com', '18996065487', '2911'),
+(2, 'Manoellita', 'manoella@gmail', '18999', '1234'),
+(3, 'Teste', 'teste@gmail', '121', '1234'),
+(4, 'Ana Livia', 'aninha@ana', '1234', '1234');
 
 --
 -- Índices para tabelas despejadas
@@ -61,6 +89,14 @@ CREATE TABLE `participantes` (
 --
 ALTER TABLE `eventos`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `inscricoes`
+--
+ALTER TABLE `inscricoes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_participanteInscricao` (`id_participante`),
+  ADD KEY `FK_eventoCriar` (`id_evento`);
 
 --
 -- Índices de tabela `participantes`
@@ -76,13 +112,30 @@ ALTER TABLE `participantes`
 -- AUTO_INCREMENT de tabela `eventos`
 --
 ALTER TABLE `eventos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `inscricoes`
+--
+ALTER TABLE `inscricoes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `participantes`
 --
 ALTER TABLE `participantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `inscricoes`
+--
+ALTER TABLE `inscricoes`
+  ADD CONSTRAINT `FK_eventoCriar` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_participanteInscricao` FOREIGN KEY (`id_participante`) REFERENCES `participantes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

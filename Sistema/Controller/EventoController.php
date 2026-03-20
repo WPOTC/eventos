@@ -25,6 +25,10 @@ class EventoController {
         return $this->model->listarEventos();
     }
 
+    public function listarInformacoesEvento($id) {
+        return $this->model->listarInformacoesEvento($id);
+    }
+
 }
 
 ?>

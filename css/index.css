@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'CherryR';
+    src: url('fonts/CHERRYDEMO-Regular.ttf');
+}
+@font-face {
+    font-family: 'CherryI';
+    src: url('fonts/CHERRYDEMO-Italic.ttf');
+}
+@font-face {
+    font-family: 'Valentine';
+    src: url('fonts/Valentine\ Bright\ Serif.ttf');
+}
+@font-face {
+    font-family: 'Nicole';
+    src: url('fonts/NicolinePavlina.ttf');
+}
+
+
+
+*{
+    margin: 0 auto;
+    padding: 0 auto;  
+    
+}
+
+
+body{
+    background-color: #faf7f0;
+    color: #3f3f3f;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   height: 180px; background-image: linear-gradient(rgba(15, 247, 69, 0.158)90%,#faf7f0 100%);
+   line-height: 1.1;
+   
+}
+
+.header1{
+    display: flex;
+    align-items: center;
+    margin-left: 120px;
+}
+.header1 h1{
+    font-family: 'CherryR', sans-serif;
+    font-size: 70px;
+    color: #181818;
+    letter-spacing: 5px;
+}
+
+.header1 nav ul{
+    display: flex;
+    flex-direction: row;
+}
+.header1 nav ul li{
+    list-style: none;
+    margin: 0 15px;
+}
+
+.header1 nav ul li a{
+    text-decoration: none;
+    color: #474747;
+    transition: all 0.3s linear;
+}
+
+.header1 nav ul li a:hover{
+    color: #000000;
+}
+
+.header2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header2 p{
+    color: #2c2c2c9c;
+}
+
+.header2 p a{
+    color: rgba(13, 65, 25, 0.473);
+    text-decoration: none;
+    transition: all 0.3s linear;
+}
+
+.header2 p a:hover{
+    color: #115320;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+main{
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+main section h1{
+    font-family: 'Valentine', sans-serif;
+}
+
+main section h3{
+    font-family: 'Nicole', sans-serif;
+}
+
+main section blockquote{
+    font-style: italic;
+    margin: 20px 0;
+    padding-left: 20px;
+    border-left: 4px solid #ccc;
+}
+
+
+
+
+.rodape{
+    background-image: linear-gradient(#faf7f0 0%, #f5efe1 10%);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+

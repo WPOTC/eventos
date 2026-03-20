@@ -8,13 +8,14 @@ class EventoModel {
     }
 
     public function criarEvento($titulo, $descricao, $data, $local, $quant_participantes) {
-        $sql = "INSERT INTO eventos (titulo, descricao, data, local) VALUES (:titulo, :descricao, :data, :local)";
+        $sql = "INSERT INTO eventos (titulo, descricao, data, local, quant_participantes) VALUES (:titulo, :descricao, :data, :local, :quant_participantes)";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
             ':titulo' => $titulo,
             ':descricao' => $descricao,
             ':data' => $data,
-            ':local' => $local
+            ':local' => $local,
+            ':quant_participantes' => $quant_participantes
         ]);
     }
 
@@ -26,6 +27,12 @@ class EventoModel {
         return $stmt->execute([$titulo, $descricao, $data, $local, $quant_participantes, $id]);
     }
     public function deletarEvento($id) {
+        // Exclui inscrições relacionadas ao evento primeiro
+        $sql = "DELETE FROM inscricoes WHERE id_evento = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+
+        // Agora exclui o evento
         $sql = "DELETE FROM eventos WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([$id]);
@@ -36,21 +43,28 @@ class EventoModel {
         $sql = "SELECT 
                     eventos.id, 
                     eventos.titulo,
-                    eventos.descricao, 
+                    eventos.descricao,
                     eventos.data, 
                     eventos.local,
                     eventos.quant_participantes,
-                    eventos.id_participantes,
-                    (
-                        SELECT COUNT(*) FROM participantes WHERE participantes.id_eventos = eventos.id
-                    ) AS vagas_ocupadas,
-                    participantes.nome AS nome_participante
+                    COUNT(inscricoes.id_participante) AS vagas_ocupadas
                 FROM eventos
-                LEFT JOIN participantes ON eventos.id_participantes = participantes.id";
+                LEFT JOIN inscricoes ON eventos.id = inscricoes.id_evento
+                GROUP BY eventos.id";
+
 
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
+        // var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function listarInformacoesEvento($id) {
+        $sql = "SELECT * FROM eventos WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
 

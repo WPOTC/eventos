@@ -68,9 +68,16 @@ class ParticipanteModel {
     }
 
     public function deletarParticipante($id) {
+        // Exclui o participante da tabela de inscrições
+        $sql = "DELETE FROM inscricoes WHERE id_participante = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+
+        // Exclui o participante da tabela participantes
         $sql = "DELETE FROM participantes WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([$id]);
+
     }
 
     public function listarInformacoesParticipante($id) {
@@ -81,26 +88,6 @@ class ParticipanteModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function participarDeEvento($id_participantes, $id_eventos){
-        // Recebe também o id do evento
-        // Exemplo: participarDeEvento($id_participantes, $id_eventos)
-        // Atualiza o participante para vincular ao evento
-        // (Se quiser permitir múltiplos eventos por participante, é necessário uma tabela de associação)
-        // Aqui, cada participante só pode participar de um evento
-        $sql = "UPDATE participantes SET id_eventos = :id_eventos WHERE id = :id_participantes";
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([
-            ':id_eventos' => $id_eventos,
-            ':id_participantes' => $id_participantes
-        ]);
-    }
-
-    public function listarEventosInscritos($id_participantes){
-        $sql = "SELECT titulo from eventos WHERE id_participantes = ?)";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id_participantes]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
 }
 
 ?>
