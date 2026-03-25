@@ -25,10 +25,12 @@ if(isset($_GET['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kondo Eventos</title>
+    <link rel="stylesheet" href="../../css/perfil.css">
 </head>
 <body>
 
 <header>
+    <div class="header1">
     <h1>Kondo Eventos</h1>
     <nav>
         <ul>
@@ -37,6 +39,14 @@ if(isset($_GET['id'])){
             <li><a href="../../sobre.php">Sobre</a></li>
         </ul>
     </nav>
+    </div>
+
+    <div class="header2">
+     <?php
+        echo "<p><a href='perfilParticipante.php?id=" . $_SESSION['participante_id'] . "'>Bem-vindo(a), " . $_SESSION['nome'] . "!</a></p>";
+    ?>
+    </div>
+</header>
     
     <main>
     <h2>Perfil do Participante</h2>
@@ -54,10 +64,24 @@ if(isset($_GET['id'])){
 
     ?>
     <br>
-    <a href="editarPerfil.php?id=<?php echo $_SESSION['participante_id']; ?>">Editar Perfil</a>
-    <a href="BEpages/logoutParticipante.php" onclick="return confirm('Tem certeza?')">Sair</a>
-    <a href="BEpages/deletarParticipante.php?id=<?php echo $_SESSION['participante_id']; ?>" onclick="return confirm('Tem certeza?')">Deletar Conta</a>
+    <button class="btn"><a href="editarPerfil.php?id=<?php echo $_SESSION['participante_id']; ?>">Editar Perfil</a></button>
+    <button class="btn"><a href="BEpages/logoutParticipante.php" onclick="return confirm('Tem certeza?')">Sair</a></button>
+    <button class="btn"><a href="BEpages/deletarParticipante.php?id=<?php echo $_SESSION['participante_id']; ?>" onclick="return confirm('Tem certeza?')">Deletar Conta</a></button>
     </main>
+    <br><br><br><br><br>
+
+        <footer>
+    <div class="rodape">
+
+        <div class="footer-top">
+        <p>&copy; 2026 Kondo Eventos. Todos os direitos reservados.</p>
+        </div>
+        </div>
+
+    </div>
+
+    
+</footer>
       
 </body>
 </html>

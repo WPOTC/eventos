@@ -19,19 +19,13 @@ $ParticipanteController = new ParticipanteController($participanteModel);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kondo Eventos</title>
+    <link rel="stylesheet" href="../../css/cadastros.css">
 </head>
 <body>
-<header>
       
-        <?php
-            echo "<a href = 'View/Usuario/exibirUsuario.php'>Imagem</a>" . "Seja bem-vindo(a), " . htmlspecialchars($_SESSION['nome']) . "!"
-        ?>
-     
-        </div>
+    <header>
+    <h1>Kondo Eventos</h1>
 </header>
-    <a href="../../index.php" img src="img/logo-voltar.png"></a>></a>
-
-    
 
 
 <?php
@@ -40,8 +34,7 @@ if(isset($_GET['id'])){
     $id = $_GET['id'];
     $participante = $ParticipanteController->listarInformacoesParticipante($id);
     ?>
-
-<div class="cadastrado">
+<main>
     <form method="post">
     <label for="nome">Nome: </label>
     <input type="text" name="nome" value="<?=$participante['nome'];?>" required> <br>
@@ -55,8 +48,23 @@ if(isset($_GET['id'])){
     <label for="senha">Senha: </label>
     <input type="password" name="senha" value="<?=$participante['senha'];?>" required> <br>
 
-    <input type="submit" value="Salvar" onclick="return confirm('Tem certeza?')">
-</form></div>
+    <button type="submit" onclick="return confirm('Tem certeza?')" class="btn">Salvar</button>
+</form>
+</main><br><br><br><br><br>
+
+        <footer>
+    <div class="rodape">
+
+        <div class="footer-top">
+        <p>&copy; 2026 Kondo Eventos. Todos os direitos reservados.</p>
+        </div>
+        </div>
+
+    </div>
+
+    
+</footer>
+
 </body>
 </html>
 

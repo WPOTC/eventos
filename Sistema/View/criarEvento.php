@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kondo Eventos</title>
+    <link rel="stylesheet" href="../../css/cadastros.css">
 </head>
 <body>
 <header>
@@ -26,9 +27,24 @@
 
             <label for="QuantidadeVagas">Quantidade de vagas: </label>
             <input type="number" id="QuantidadeVagas" name="quant_participantes" required>
-            <input type="submit" value="Criar Evento">
+            <button type="submit" class="btn">Criar Evento</button>
         </form>
     </main>
+
+    <br><br><br><br><br><br>
+
+    <footer>
+    <div class="rodape">
+
+        <div class="footer-top">
+        <p>&copy; 2026 Kondo Eventos. Todos os direitos reservados.</p>
+        </div>
+        </div>
+
+    </div>
+
+    
+</footer>
     
 </body>
 </html>

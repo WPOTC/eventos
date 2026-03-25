@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kondo Eventos</title>
+    <link rel="stylesheet" href="css/sobre.css">
 </head>
+<?php
+session_start();
+?>
 <body>
 
 <header>
+    <div class="header1">
     <h1>Kondo Eventos</h1>
     <nav>
         <ul>
@@ -16,18 +21,20 @@
             <li><a href="sobre.php">Sobre</a></li>
         </ul>
     </nav>
-    <img src="img/user.png" alt="Imagem do usuário" width="50" height="50">
+</div>
+    <div class="header2">
      <?php
     if (isset($_SESSION['participante_id'])) {
-        echo "<a href='Sistema/View/perfilParticipante.php?id=" . $_SESSION['participante_id'] . "'>Bem-vindo(a), " . $_SESSION['nome'] . "!</a>";
+        echo "<p><a href='Sistema/View/perfilParticipante.php?id=" . $_SESSION['participante_id'] . "'>Bem-vindo(a), " . $_SESSION['nome'] . "!</a></p>";
     } elseif(!isset($_SESSION['participante_id'])){
-        echo "<a href='Sistema/View/cadastrarParticipante.php'>Cadastre-se</a> ou <a href='Sistema/View/loginParticipante.php'>Faça login</a>";
+        echo "<p><a href='Sistema/View/cadastrarParticipante.php'>Cadastre-se</a></p> <p>ou</p> <p><a href='Sistema/View/loginParticipante.php'>Faça login</a></p>";
     }
     ?>
+    </div>
 </header>
 
 <main>
-    <section class="sobre">
+    <section class="secao-sobre">
         <h1>Sobre a Kondo Eventos</h1>
 
         <p>
@@ -37,9 +44,9 @@
         <p>
             Desde a nossa fundação, entendemos que cada evento carrega uma história única. Por isso, trabalhamos de forma personalizada, respeitando a identidade, os sonhos e os objetivos de cada cliente. Seja um casamento, evento corporativo, celebração social ou projeto cultural, nossa equipe se dedica a transformar ideias em momentos inesquecíveis.
         </p>
-    </section>
+    </section><br>
 
-    <section class="historia">
+    <section class="secao-historia">
         <h2>Nossa História</h2>
 
         <p>
@@ -51,7 +58,7 @@
         </p>
     </section>
 
-    <section class="diferenciais">
+    <section class="secao-diferenciais">
         <h2>Nossos Diferenciais</h2>
 
         <ul>
@@ -64,7 +71,7 @@
         </ul>
     </section>
 
-    <section class="equipe">
+    <section class="secao-equipe">
         <h2>Nossa Equipe</h2>
 
         <p>
@@ -76,7 +83,7 @@
         </p>
     </section>
 
-    <section class="compromisso">
+    <section class="secao-compromisso">
         <h2>Nosso Compromisso</h2>
 
         <p>
@@ -88,6 +95,20 @@
         </p>
     </section>
 </main>
+    <br><br><br><br>
+
+
+    <footer>
+    <div class="rodape">
+
+        <div class="footer-top">
+        <p>&copy; 2026 Kondo Eventos. Todos os direitos reservados.</p>
+        </div>
+        </div>
+
+    </div>
+
     
+</footer>
 </body>
 </html>

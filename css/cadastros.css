@@ -1,0 +1,154 @@
+@font-face {
+    font-family: 'CherryR';
+    src: url('fonts/CHERRYDEMO-Regular.ttf');
+}
+@font-face {
+    font-family: 'CherryI';
+    src: url('fonts/CHERRYDEMO-Italic.ttf');
+}
+@font-face {
+    font-family: 'Valentine';
+    src: url('fonts/Valentine\ Bright\ Serif.ttf');
+}
+@font-face {
+    font-family: 'Nicole';
+    src: url('fonts/NicolinePavlina.ttf');
+}
+@font-face {
+    font-family: 'Sakire';
+    src: url('fonts/Sakire.ttf');
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;  
+    
+}
+
+
+body{
+    background-color: #faf7f0;
+    color: #3f3f3f;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   height: 180px; background-image: linear-gradient(rgba(15, 247, 69, 0.158)90%,#faf7f0 100%);
+   line-height: 1.1;
+   
+}
+
+header h1{
+    font-family: 'CherryR', sans-serif;
+    font-size: 70px;
+    color: #181818;
+    letter-spacing: 5px;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin: 50px auto 0 auto; 
+    width: 90%;
+    max-width: 400px; 
+    gap: 10px;
+}
+
+main form input {
+    border: none;
+    background: none;
+    outline: none;
+    box-shadow: 0 1.5px 0 0 #1a1a1a;
+    font-size: 18px;
+    width: 100%;
+    padding: 5px 0;
+    font-family: 'Valentine', serif;
+}
+
+main form label {
+    font-family: 'CherryR', serif;
+    font-size: 24px;
+    font-weight: 1000;
+    letter-spacing: 0.8px;
+}
+
+.btn{
+    align-self: center;
+    align-items: center;
+    background-color: #1153206e;
+    color: #fcfaf2dc;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    font-size: 18px;
+    font-family: 'Sakiro', serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn:hover{
+    background-color: #1153209a;
+    color: #fcfaf2;
+
+}
+
+
+
+
+
+
+.texto-a-parte{
+    font-family: 'Valentine', serif;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #353535;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.texto-a-parte a{
+    color: #115320;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.texto-a-parte a:hover{
+    color: #1153209a;
+}
+
+
+
+
+
+
+
+
+.rodape{
+    background-image: linear-gradient(#faf7f0 0%, #f5efe1 10%);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    position: relative;
+}
+
+.rodapeAbsolute{
+    background-image: linear-gradient(#faf7f0 0%, #f5efe1 10%);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    position: Absolute;
+    width: 100%;
+    bottom: 0;
+}

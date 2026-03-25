@@ -22,8 +22,8 @@
 
 
 *{
-    margin: 0 auto;
-    padding: 0 auto;  
+    margin: 0;
+    padding: 0;  
     
 }
 
@@ -47,13 +47,13 @@ header{
 .header1{
     display: flex;
     align-items: center;
-    margin-left: 120px;
 }
 .header1 h1{
     font-family: 'CherryR', sans-serif;
     font-size: 70px;
     color: #181818;
     letter-spacing: 5px;
+    margin-left: 100px;
 }
 
 .header1 nav ul{
@@ -79,6 +79,7 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 300px;
 }
 
 .header2 p{
@@ -98,86 +99,54 @@ header{
 
 
 
+
 main{
-    margin: 20px;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin: 50px auto 0 auto; 
+    width: 90%;
+    max-width: 400px; 
+    gap: 10px;
+    
 }
 
-.texto-a-parte {
-    font-family: serif;
-    font-size: 18px;
-    color: #3f3f3f;
-    letter-spacing: 1.5px;
-}
-
-.texto-a-parte a {
-    color: #115320;
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-main section{
-    line-height: 0.9;
-}
-main section h2{
-    font-family: 'Valentine', sans-serif;
+main h2{
+    font-family: 'CherryR', serif;
     font-size: 40px;
-}
-
-main section p{
-    font-size: 20px;
-}
-
-.evento{
-    max-width: 1000px;
-    padding: 15px;
-    background-image: linear-gradient(#faf7f0 0%, #fdd36a33 5%, #fdd36a33 90%,#faf7f0 105%);
-    box-shadow: 2px 0px 10px #faf7f0,
-    -2px 0px 10px #faf7f0;
-
-}
-
-.titulo-evento{
-    letter-spacing: 3px;
-    font-family: "CherryR", sans-serif;
-    text-shadow: 0.3px 0.3px #3f3f3f,
-    -0.3px -0.3px #3f3f3f,
-    0.3px -0.3px #3f3f3f,
-    -0.3px 0.3px #3f3f3f;
-}
-
-.descricao-evento{
-    font-family: "CherryI", sans-serif;
-    font-size: 18px;
-    color: #3f3f3f;
-    text-shadow: 0.3px 0.3px #3f3f3f,
-    -0.3px -0.3px #3f3f3f,
-    0.3px -0.3px #3f3f3f,
-    -0.3px 0.3px #3f3f3f;
+    color: #181818;
     letter-spacing: 2px;
 }
 
-.btns{
+.btn{
+    align-self: center;
+    align-items: center;
     background-color: #1153206e;
-    color: #fcfaf2dc;
     border: none;
     padding: 6px 12px;
     cursor: pointer;
     transition: all 0.2s linear;
-    font-size: 15px;
-    font-family: 'Nicole', serif;
     font-weight: bold;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
+}
+
+.btn:hover{
+    background-color: #1153209a;
+
+}
+
+.btn a{
+    color: #fcfaf2dc;
+    font-size: 18px;
+    font-family: 'Sakiro', serif;
+    font-weight: bold;
+    transition: all 0.2s linear;
     text-decoration: none;
 }
 
-.btns:hover{
-    background-color: #1153209a;
+.btn a:hover{
     color: #fcfaf2;
 }
-
-
 
 
 

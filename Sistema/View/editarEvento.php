@@ -19,9 +19,27 @@ $EventoController = new EventoController($eventoModel);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kondo Eventos</title>
+    <link rel="stylesheet" href="../../css/cadastros.css">
 </head>
 <body>
+    <?php
 
+    if( $_SESSION['email'] !== 'adm@gmail.com'){
+        echo "<script>
+        alert('Acesso negado! Somente ADMs podem acessar esta página.');
+        window.location.href = 'eventos.php';
+    </script>";
+
+        exit;
+    }
+
+    ?>
+
+    <header>
+    <h1>Kondo Eventos</h1>
+</header>
+
+<main>
 
 <?php
 if(isset($_GET['id'])){
@@ -47,8 +65,25 @@ if(isset($_GET['id'])){
     <label for="quant_participantes">Quantidade de participantes: </label>
     <input type="number" name="quant_participantes" value="<?=$evento['quant_participantes'];?>" min="<?= $evento['quant_participantes'] ?>" required> <br>
 
-    <input type="submit" value="Salvar" onclick="return confirm('Tem certeza?')">
-</form></div>
+    <button type="submit" onclick="return confirm('Tem certeza?')" class="btn">Salvar</button>
+</form>
+</div>
+
+</main>
+<br><br>
+
+        <footer>
+    <div class="rodape">
+
+        <div class="footer-top">
+        <p>&copy; 2026 Kondo Eventos. Todos os direitos reservados.</p>
+        </div>
+        </div>
+
+    </div>
+
+    
+</footer>
 </body>
 </html>
 

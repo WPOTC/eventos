@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kondo Eventos</title>
+    <link rel="stylesheet" href="../../css/cadastros.css">
 </head>
 <body>
     <header>
     <h1>Kondo Eventos</h1>
-    <nav>
-        <ul>
-            <li><a href="../../index.php">Início</a></li>
-            <li><a href="eventos.php">Eventos</a></li>
-            <li><a href="../../sobre.php">Sobre</a></li>
-        </ul>
-    </nav>
 </header>
+
+
 
     <main>
         <form method="POST">
@@ -31,9 +27,25 @@
             <label for="telefone">Telefone:</label>
             <input type="tel" id="telefone" name="telefone" required>
             <br>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" class="btn">Cadastrar</button>
         </form>
-    </main>
+    </main><br>
+
+    <p class="texto-a-parte">Já é cadastrado? <a href="loginParticipante.php">Faça login</a></p>
+    
+    <br><br>
+        <footer>
+    <div class="rodape">
+
+        <div class="footer-top">
+        <p>&copy; 2026 Kondo Eventos. Todos os direitos reservados.</p>
+        </div>
+        </div>
+
+    </div>
+
+    
+</footer>
 </body>
 </html>
 
